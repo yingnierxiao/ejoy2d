@@ -40,9 +40,9 @@ void
 font_create(int font_size, struct font_context *ctx) {
 //  UIFont * font = [UIFont boldSystemFontOfSize:font_size];
 //  UIFont* font = [UIFont fontWithName:@"Supercell-Magic" size:font_size];
-//  UIFont* font = [UIFont fontWithName:@"MicrosoftYaHei" size:font_size];
+  UIFont* font = [UIFont fontWithName:@"Helvetica" size:font_size];
 //    UIFont* font = [UIFont fontWithName:@"FZY4JW--GB1-0" size:font_size];
-  UIFont* font = [UIFont fontWithName:@"FZCuYuan-M03" size:font_size];
+//  UIFont* font = [UIFont fontWithName:@"FZCuYuan-M03" size:font_size];
 	ctx->font = (void *)font;
 	ctx->dc = NULL;
   ctx->size = font_size;
@@ -257,7 +257,7 @@ void
 font_glyph(const char * str, int unicode, void * buffer, struct font_context *ctx){
   BOOL is_edge = !(ctx->size & 0x01);
   NSString * tmp = [NSString stringWithUTF8String: str];
-  if(is_edge){
+  if(!is_edge){
     _font_glyph_rgba(tmp, buffer, ctx);
   }else{
     _font_glyph_gray(tmp, buffer, ctx);
