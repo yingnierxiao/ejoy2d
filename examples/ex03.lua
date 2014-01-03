@@ -14,7 +14,7 @@ end)
 local game = {}
 
 function game.update()
-	-- ps:update(0.0333)
+	ps:update(0.0333)
 	ps2:update(0.0333)
 end
 
